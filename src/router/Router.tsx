@@ -1,5 +1,6 @@
 import { memo, VFC } from "react";
 import { Route, Switch } from "react-router-dom";
+import { Header } from "../components/organisms/layout/Header";
 
 import { Page404 } from "../components/pages/Page404";
 import { Top } from "../components/pages/Top";
@@ -9,15 +10,16 @@ import { selectionRoutes } from "./SelectionRoutes";
 
 export const Router: VFC = memo(() => {
   return (
+    
     <Switch>
       <Route exact path='/'>
-        <Top />
+      <Header /><Top />
       </Route>
       <Route path='/selection' render={({ match: { url }}) => (
         <Switch>
           {selectionRoutes.map((route) => (
             <Route key={route.path} exact={route.exact} path={`${url}${route.path}`} >
-              {route.children}
+              <Header />{route.children}
             </Route>
           ))}
         </Switch>
@@ -26,7 +28,7 @@ export const Router: VFC = memo(() => {
         <Switch>
           {judgeRoutes.map((route) => (
             <Route key={route.path} exact={route.exact} path={`${url}${route.path}`}>
-              {route.children}
+              <Header />{route.children}
             </Route>
           ))}
         </Switch>
@@ -35,13 +37,13 @@ export const Router: VFC = memo(() => {
         <Switch>
           {resultRoutes.map((route) => (
             <Route key={route.path} exact={route.exact} path={`${url}${route.path}`}>
-              {route.children}
+              <Header />{route.children}
             </Route>
           ))}
         </Switch>
       )} />
       <Route path='*'>
-        <Page404 />
+        <Header /><Page404 />
       </Route>
     </Switch>
   )

@@ -1,5 +1,5 @@
 import { Page404 } from "../components/pages/Page404";
-import { ResultM1 } from "../components/pages/Result";
+import { ResultM1 } from "../components/pages/ResultM1";
 import { ResultKing } from "../components/pages/ResultKing";
 import { ResultR1 } from "../components/pages/ResultR1";
 

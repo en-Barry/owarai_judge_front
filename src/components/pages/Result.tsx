@@ -1,7 +1,7 @@
 import { memo, VFC } from "react";
 
-export const Result: VFC = memo(() => {
+export const ResultM1: VFC = memo(() => {
   return (
-    <p>Resultページです</p>
+    <p>M-1グランプリのResultページです</p>
   )
 });

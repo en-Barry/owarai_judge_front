@@ -4,20 +4,20 @@ import { Container, Heading } from "@chakra-ui/react";
 import styled from "styled-components";
 
 import { BaseButton } from "../atoms/button/BaseButton";
-import { useSelGen } from "../hooks/useSelGen";
+import { useSelYear } from "../hooks/useSelYear";
 
 export const SelectionKing: VFC = memo(() => {
-  const { getSelections, generations } = useSelGen('king_of_conte');
+  const { getYears, years } = useSelYear('king_of_conte');
 
-  useEffect(() => getSelections(), []);
+  useEffect(() => getYears(), []);
 
   return (
     <>
     <Heading align='center' mb={6}>年代を選択する</Heading>
       <Container align='center'>
-        {generations.map((gen) => (
+        {years.map((year) => (
           <>
-          <SButton key={gen}>{gen}</SButton>
+          <SButton key={year.toString()}>{year}</SButton>
           <br />
           </>
         ))}

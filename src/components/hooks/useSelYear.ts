@@ -2,13 +2,13 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-export const useSelGen = (props: string) => {
-  const [generations, setGenerations] = useState<Array<number>>([]);
+export const useSelYear = (props: string) => {
+  const [years, setYears] = useState<Array<number>>([]);
 
-  const getSelections = useCallback(() => {
+  const getYears = useCallback(() => {
     axios.get<Array<number>>(`http://localhost:3001/api/v1/contests/${props}`).then((res) => {
-      setGenerations(res.data);
+      setYears(res.data);
     });
   }, []);
-  return { getSelections, generations }
+  return { getYears, years }
 };

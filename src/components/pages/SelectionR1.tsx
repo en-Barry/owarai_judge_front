@@ -3,21 +3,21 @@ import { memo, useEffect, VFC } from "react";
 import { Container, Heading } from "@chakra-ui/react";
 import styled from "styled-components";
 
-import { useSelGen } from "../hooks/useSelGen";
+import { useSelYear } from "../hooks/useSelYear";
 import { BaseButton } from "../atoms/button/BaseButton";
 
 export const SelectionR1: VFC = memo(() => {
-  const { getSelections, generations } = useSelGen('r-1gp');
+  const { getYears, years } = useSelYear('r-1gp');
 
-  useEffect(() => getSelections(), []);
+  useEffect(() => getYears(), []);
 
   return (
     <>
     <Heading align='center' mb={6}>年代を選択する</Heading>    
       <Container align='center'>
-        {generations.map((gen) => (
+        {years.map((year) => (
         <>
-          <SButton key={gen}>{gen}</SButton>
+          <SButton key={year.toString()}>{year}</SButton>
           <br />
         </>
         ))}

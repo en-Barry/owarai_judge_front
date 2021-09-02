@@ -1,6 +1,6 @@
 /* eslint-disable  react-hooks/exhaustive-deps */
 import { memo, VFC, useEffect, useCallback } from "react";
-import { Container, Heading } from "@chakra-ui/react";
+import { Button, Container, Heading } from "@chakra-ui/react";
 import styled from "styled-components";
 
 import { BaseButton } from "../atoms/button/BaseButton";
@@ -12,6 +12,7 @@ export const SelectionKing: VFC = memo(() => {
 
   const history = useHistory();
   const onClickYear = useCallback((contest) => history.push({ pathname: '/judge/king-of-conte', state: { contest: contest }}), []);
+  const onClickBack = useCallback(() => history.goBack(), []);
 
   useEffect(() => getContests(), []);
 
@@ -27,6 +28,7 @@ export const SelectionKing: VFC = memo(() => {
           <br />
           </>
         ))}
+        <Button w='80%' mb={6} p={6} fontSize='lg' onClick={onClickBack}>前の画面に戻る</Button>
       </Container>
     </>
   )

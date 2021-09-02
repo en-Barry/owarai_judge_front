@@ -2,10 +2,11 @@
 import { memo, VFC } from "react";
 import { Button, Container, Heading, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Table, TableCaption, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { useFinalist } from "../hooks/useFinalist";
 import { ContestType } from "../types/contest";
+import { useCallback } from "react";
 
 interface CustomizedState {
   contest: ContestType
@@ -16,6 +17,10 @@ export const JudgeKing: VFC = memo(() => {
   const state = location.state as CustomizedState;
   const { contest } = state;
   const { getFinalists, finalists } = useFinalist(`king-of-conte/${contest.year}`);
+
+  const history = useHistory();
+  const onClickJudgement = useCallback(() => history.push('/result/king-of-conte'), []);
+  const onClickBack = useCallback(() => history.goBack(), []);
 
   useEffect(() => getFinalists(), []);
 
@@ -50,9 +55,9 @@ export const JudgeKing: VFC = memo(() => {
             ))}
           </Tbody>
       </Table>
-      <Button w='80%' mt={4} mb={6} p={6} fontSize='lg'>審査完了！</Button>
+      <Button w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={onClickJudgement}>審査完了！</Button>
       <Button w='80%' mb={6} p={6} fontSize='lg'>結果だけ見る</Button>
-      <Button w='80%' mb={6} p={6} fontSize='lg'>年代選択に戻る</Button>
+      <Button w='80%' mb={6} p={6} fontSize='lg' onClick={onClickBack}>年代選択に戻る</Button>
     </Container>
     </>
   )

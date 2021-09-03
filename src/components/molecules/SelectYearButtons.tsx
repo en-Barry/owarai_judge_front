@@ -26,7 +26,6 @@ export const SelectYearButtons: VFC<Props> = memo((props) => {
                     key={contest.id} onClick={() => onClickYear(contest)}>
           {contest.year}
         </BaseButton>
-        <br />
         </>
       ))}
     </>

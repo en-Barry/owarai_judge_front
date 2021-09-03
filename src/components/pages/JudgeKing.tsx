@@ -1,12 +1,12 @@
 /* eslint-disable  react-hooks/exhaustive-deps */
-import { memo, VFC } from "react";
-import { Button, Container, Heading, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Table, TableCaption, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { memo, VFC, useEffect } from "react";
+import { Container, Heading } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
 
 import { useFinalist } from "../hooks/useFinalist";
 import { ContestType } from "../types/contest";
-import { useCallback } from "react";
+import { JudgeTable } from "../molecules/JudgeTable";
+import { JudgeButtons } from "../molecules/JudgeButtons";
 
 interface CustomizedState {
   contest: ContestType
@@ -18,46 +18,14 @@ export const JudgeKing: VFC = memo(() => {
   const { contest } = state;
   const { getFinalists, finalists } = useFinalist(`king-of-conte/${contest.year}`);
 
-  const history = useHistory();
-  const onClickJudgement = useCallback(() => history.push('/result/king-of-conte'), []);
-  const onClickBack = useCallback(() => history.goBack(), []);
-
   useEffect(() => getFinalists(), []);
 
   return (
     <>
     <Heading align='center' mb={6}>審査結果を入力！</Heading>
     <Container align='center'>
-      <Table variant='simple' size='sm'>
-        <TableCaption>{`キングオブコント${contest.year}`}</TableCaption>
-        <Thead>
-          <Tr>
-            <Th>order</Th>
-            <Th>finalist</Th>
-            <Th>score</Th>
-          </Tr>
-        </Thead>
-          <Tbody>
-            {finalists.map((finalist, i) => (
-            <Tr>
-              <Td fontWeight={"bold"}>{i + 1}</Td>
-              <Td fontWeight={"bold"}>{finalist.name}</Td>
-              <Td isNumeric>
-                <NumberInput maxW={20} defaultValue={85} max={100} min={70}>
-                  <NumberInputField />
-                    <NumberInputStepper>
-                      <NumberIncrementStepper />
-                      <NumberDecrementStepper />
-                    </NumberInputStepper>
-                </NumberInput>
-              </Td>
-            </Tr>
-            ))}
-          </Tbody>
-      </Table>
-      <Button w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={onClickJudgement}>審査完了！</Button>
-      <Button w='80%' mb={6} p={6} fontSize='lg'>結果だけ見る</Button>
-      <Button w='80%' mb={6} p={6} fontSize='lg' onClick={onClickBack}>年代選択に戻る</Button>
+      <JudgeTable finalists={finalists} contest={contest} />
+      <JudgeButtons pathname={'/result/king-of-conte'} />
     </Container>
     </>
   )

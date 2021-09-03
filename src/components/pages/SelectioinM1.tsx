@@ -1,17 +1,16 @@
 /* eslint-disable  react-hooks/exhaustive-deps */
 import { memo, useCallback, useEffect, VFC } from "react";
-import { Container, Heading } from "@chakra-ui/react";
-import styled from "styled-components";
-
-import { BaseButton } from "../atoms/button/BaseButton";
-import { useContest } from "../hooks/useContest";
+import { Button, Container, Heading } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
+
+import { useContest } from "../hooks/useContest";
+import { SelectYearButtons } from "../molecules/SelectYearButtons";
 
 export const SelectionM1: VFC = memo(() => {
   const { getContests, contests } = useContest('m-1gp');
 
   const history = useHistory();
-  const onClickYear = useCallback((contest) => history.push({ pathname: '/judge/m-1gp', state: { contest: contest }}), []);
+  const onClickBack = useCallback(() => history.goBack(), []);
 
   useEffect(() => getContests(), []);
 
@@ -19,19 +18,9 @@ export const SelectionM1: VFC = memo(() => {
     <>
     <Heading align='center' mb={6}>年代を選択する</Heading>
       <Container align='center'>
-        {contests.map((contest) => (
-        <>
-          <SButton key={contest.id} onClick={() => onClickYear(contest)}>{contest.year}</SButton>
-          <br />
-        </>
-        ))}
+        <SelectYearButtons contests={contests} pathname={'/judge/m-1gp'} bgColor={'424242'} color={'DAAA00'} />
+        <Button w='80%' mb={6} p={6} fontSize='lg' onClick={onClickBack}>前の画面に戻る</Button>
       </Container>
     </>
   )
 });
-
-const SButton = styled(BaseButton)`
-  background-color: #424242;
-  color: #DAAA00;
-  margin-bottom: 1rem;
-`;

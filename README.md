@@ -1,5 +1,10 @@
 # お笑いジャッジ.com  
 <br />
+バックエンド側GitHub  
+<br />
+https://github.com/en-Barry/owarai_judge_api_back  
+<br />
+<br />
 
 ## アプリ概要
 **お笑い三大賞レース（M-1, キングオブコント, R-1）の国民審査アプリ**です。  
@@ -48,6 +53,7 @@ owarai-judge.com
   - seed-fu &ensp; 2.3.9 
 
 ### インフラ
+- Heroku or Netlify（予定）
 - MySQL　&ensp; 
 
 ### ER図

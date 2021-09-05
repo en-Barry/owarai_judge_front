@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# お笑いジャッジ.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## アプリ概要
+**お笑い三大賞レース（M-1, キングオブコント, R-1）の国民審査アプリ**です。  
+観ている賞レースを審査員目線で得点をつけ、結果をTwitterでシェアしましょう。  
+審査結果は集計され、国民審査員として投票者全員の平均得点が表示されます。  
+<br />
+<br />
 
-## Available Scripts
+## 作成した経緯
+お笑い賞レースを観るときは審査員になりきって、友達と「何点にした?」いうやりとりが毎年の恒例です。  
+Twitter上でも審査結果を晒すのがお笑いファンの中でも恒例ですが、わざわざファイナリストの名前を入力するのが面倒な一面がありました。  
+また、自分の意見を正義と思い込み「あの審査員はおかしい！」「面白くなかったのに贔屓で勝ち上がった」など、心を痛めるようなツイートが近年多く見られるようになりました。  
+この現状を変えるには、「入力の手間が省ける審査アプリ」「国民の審査を客観的に見られるアプリ」が必要だと思い作成しました。
+<br />
+<br />
 
-In the project directory, you can run:
+## リンク（取得予定）
+owarai-judge.com
+<br />
+<br />
 
-### `yarn start`
+## 使用画面サンプル（Figmaの画面です）
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| Top画面 | 年代選択画面 | 審査画面 | 審査結果画面 |
+| :---: | :---: | :---: | :---: |
+| <img width="172" alt="スクリーンショット 2021-09-05 11 21 58" src="https://user-images.githubusercontent.com/69828703/132112821-103351d0-a0bd-4743-b22d-428154c61304.png"> | <img width="167" alt="スクリーンショット 2021-09-05 11 22 16" src="https://user-images.githubusercontent.com/69828703/132112829-b0a095ec-00c9-49ef-8b3d-f00d4947ccd6.png"> | <img width="167" alt="スクリーンショット 2021-09-05 11 22 29" src="https://user-images.githubusercontent.com/69828703/132112839-4d068ee2-85c4-4a51-ab5c-ee21871b73b7.png"> | <img width="166" alt="スクリーンショット 2021-09-05 11 22 45" src="https://user-images.githubusercontent.com/69828703/132112847-8f86cb25-a6a5-4cac-a18f-bd41692298a2.png"> |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# 使用技術
+スマートフォンでの使用を想定したSPAを作成しました。
 
-### `yarn test`
+### フロントエンド
+- React　&ensp; 17.0.2
+  - react-router-dom &ensp; 5.2.1
+  - styled-components　&ensp; 5.3.1
+- TypeScript　&ensp; 4.1.2
+- axios　&ensp; 0.21.1
+- Chakra UI　&ensp; 1.6.6
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### バックエンド
+- Ruby　&ensp; 2.6.6
+- Rails(API)　&ensp; 6.0.4.1
+  - seed-fu &ensp; 2.3.9 
 
-### `yarn build`
+### インフラ
+- MySQL　&ensp; 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

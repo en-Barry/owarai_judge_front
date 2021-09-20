@@ -8,7 +8,7 @@ import { ContestType } from "../types/contest";
 import { JudgeTable } from "../molecules/JudgeTable";
 import { JudgeButtons } from "../molecules/JudgeButtons";
 
-interface CustomizedState {
+type CustomizedState = {
   contest: ContestType
 }
 

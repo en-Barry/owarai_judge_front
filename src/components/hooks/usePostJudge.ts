@@ -18,12 +18,7 @@ export const usePostJudge = () => {
         if (res.data.status === 'not_found') {
           alert(res.data.errors.title)
         } else {
-          axios.get<Array<JudgementType>>(`http://localhost:3001/api/v1/judgements/king-of-conte/${judgements[0].contest_id}`).then(res => {
-          if (res.data) {
-            history.push(`/result/king-of-conte`);
-          } else {
-            alert('ただいま準備中です');
-          }})
+          history.push(`/result/king-of-conte`);
         }
       }).catch(() => alert('情報が取得できませんでした')).finally(() => setLoading(false));
     }, [history]);

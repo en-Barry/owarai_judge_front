@@ -1,4 +1,4 @@
-import { Container, Divider, Table, TableCellProps, TableColumnHeaderProps, TableRowProps, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, BoxProps, Container, Table, TableCellProps, TableColumnHeaderProps, TableRowProps, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { FC } from "react";
 import { memo, VFC } from "react";
 import { JudgementType2 } from "../types/judgement";
@@ -10,10 +10,11 @@ type Props = {
   judgeResults2: JudgementType2[];
 }
 
+const SBox : FC<BoxProps> = (props) => <Box p='2' m='2' borderRadius='xl' borderWidth='2px' {...props} />
 const STr : FC<TableRowProps> = (props) => <Tr backgroundColor='gray.700' {...props} />
 const STh : FC<TableColumnHeaderProps> = (props) => <Th color='white' {...props} />
 const STd : FC<TableCellProps> = (props) => <Td color='yellow.400' fontWeight='bold' {...props} />
-const FTh : FC<TableColumnHeaderProps> = (props) => <Th bg='white' color='gray.700' colSpan={7} textAlign='center' fontSize={18} {...props} />
+const FTh : FC<TableColumnHeaderProps> = (props) => <Th bg='white' color='gray.700' colSpan={7} textAlign='center' fontSize={16} {...props} />
 
 export const ResultTable: VFC<Props> = memo((props) => {
   const { other, finalists, judges, judgeResults2 } = props;
@@ -21,34 +22,36 @@ export const ResultTable: VFC<Props> = memo((props) => {
   return (
     <>
     <Container align='center'>
-      <Table size='sm'>
-        <Thead>
-          <Tr>
-            <FTh>{finalists.finalists_name[0].name}</FTh>
-          </Tr>
-          <STr>
-            <STh>{judges.judges_name[4].name}</STh>
-            <STh>{judges.judges_name[3].name}</STh>
-            <STh>{judges.judges_name[2].name}</STh>
-            <STh>{judges.judges_name[1].name}</STh>
-            <STh>{judges.judges_name[0].name}</STh>
-            <STh>国民</STh>
-            <STh>あなた</STh>
-          </STr>
-        </Thead>
-        <Tbody>
-          <STr>
-            <STd>{judgeResults2[4].score}</STd>
-            <STd>{judgeResults2[3].score}</STd>
-            <STd>{judgeResults2[2].score}</STd>
-            <STd>{judgeResults2[1].score}</STd>
-            <STd>{judgeResults2[0].score}</STd>
-            <STd>{other.other_results[0].score}</STd>
-            <STd>{judgeResults2[50].score}</STd>
-          </STr>
-        </Tbody>
-      </Table>
-      <Divider />
+      <SBox>
+        <Table size='sm'>
+          <Thead>
+            <Tr>
+              <FTh>{finalists.finalists_name[0].name}</FTh>
+            </Tr>
+            <STr>
+              <STh>{judges.judges_name[4].name}</STh>
+              <STh>{judges.judges_name[3].name}</STh>
+              <STh>{judges.judges_name[2].name}</STh>
+              <STh>{judges.judges_name[1].name}</STh>
+              <STh>{judges.judges_name[0].name}</STh>
+              <STh>国民</STh>
+              <STh>あなた</STh>
+            </STr>
+          </Thead>
+          <Tbody>
+            <STr>
+              <STd>{judgeResults2[4].score}</STd>
+              <STd>{judgeResults2[3].score}</STd>
+              <STd>{judgeResults2[2].score}</STd>
+              <STd>{judgeResults2[1].score}</STd>
+              <STd>{judgeResults2[0].score}</STd>
+              <STd>{other.other_results[0].score}</STd>
+              <STd>{judgeResults2[50].score}</STd>
+            </STr>
+          </Tbody>
+        </Table>
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -76,7 +79,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-      <Divider />
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -104,7 +108,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -132,7 +137,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -160,7 +166,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-      
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -188,7 +195,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -216,7 +224,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -244,7 +253,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -272,7 +282,8 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
-      
+      </SBox>
+      <SBox>
       <Table size='sm'>
         <Thead>
           <Tr>
@@ -300,6 +311,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
           </STr>
         </Tbody>
       </Table>
+      </SBox>
     </Container>
     </>
   )

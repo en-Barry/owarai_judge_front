@@ -22,7 +22,7 @@ export const JudgeKing: VFC = memo(() => {
 
   return (
     <>
-    <Heading align='center' mb={6}>審査結果を入力！</Heading>
+    <Heading pt={5} align='center' mb={6}>審査結果を入力！</Heading>
 
     <Container align='center'>
       <JudgeTable finalists={finalists} contest={contest} />

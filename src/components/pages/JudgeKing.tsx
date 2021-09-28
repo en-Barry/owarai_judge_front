@@ -8,7 +8,7 @@ import { ContestType } from "../types/contest";
 import { JudgeTable } from "../molecules/JudgeTable";
 import { JudgeButtons } from "../molecules/JudgeButtons";
 
-interface CustomizedState {
+type CustomizedState = {
   contest: ContestType
 }
 
@@ -23,9 +23,10 @@ export const JudgeKing: VFC = memo(() => {
   return (
     <>
     <Heading align='center' mb={6}>審査結果を入力！</Heading>
+
     <Container align='center'>
       <JudgeTable finalists={finalists} contest={contest} />
-      <JudgeButtons pathname={'/result/king-of-conte'} />
+      <JudgeButtons pathname={'/result/king-of-conte'} contest={contest} />
     </Container>
     </>
   )

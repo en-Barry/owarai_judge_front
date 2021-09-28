@@ -2,7 +2,8 @@
 import { memo, useCallback, VFC } from "react";
 import { Button, Container, Heading } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
-import { FaTwitter } from "react-icons/fa";
+
+import { TwitterButton } from "../atoms/button/TwitterButton";
 
 export const Top: VFC = memo(() => {
   const history = useHistory();
@@ -24,9 +25,7 @@ export const Top: VFC = memo(() => {
         <Button w='80%' mb={6} p={6} fontSize='lg' bg='#002D71' color='#DAAA00' onClick={onClickR1}>
           R-1グランプリ
         </Button>
-        <Button colorScheme="twitter" leftIcon={<FaTwitter />} mb={6}>
-          Twitterでシェアする
-        </Button>
+        <TwitterButton text={`Twitterでシェアする`} />
       </Container>
     </>
   )

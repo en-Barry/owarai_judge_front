@@ -120,7 +120,7 @@ export const JudgeTable: VFC<Props> = memo((props) => {
 
   return (
     <>
-    {finalists.length !== 0 && (
+    {finalists.length > 9 && (
     <Table variant='simple' size='sm'>
     <TableCaption>{`${contest.name}${contest.year}`}</TableCaption>
     <Thead>

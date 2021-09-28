@@ -29,7 +29,7 @@ export const ResultKing: VFC = memo(() => {
   return (
     <>
     <Heading pt={5} align='center' mb={6}>結果発表〜〜〜！！！</Heading>
-    {judgeResults.length !== 0 && (
+    {judgeResults.length > 3 && (
       <ResultTable other={other} finalists={finalists} judges={judges} judgeResults2={judgeResults2} />
     )}
     </>

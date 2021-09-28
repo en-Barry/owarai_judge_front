@@ -125,7 +125,7 @@ export const JudgeTable: VFC<Props> = memo((props) => {
     <TableCaption>{`${contest.name}${contest.year}`}</TableCaption>
     <Thead>
       <Tr>
-        <Th></Th>
+        <Th>order</Th>
         <Th>finalist</Th>
         <Th>score</Th>
       </Tr>
@@ -284,7 +284,7 @@ export const JudgeTable: VFC<Props> = memo((props) => {
       </Tbody>
     </Table>
     )}
-    <Button onClick={handleSubmit} loading={loading}>審査完了</Button>
+    <Button w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={handleSubmit} loading={loading}>審査完了</Button>
   </>
   )
 })

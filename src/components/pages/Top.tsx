@@ -14,7 +14,7 @@ export const Top: VFC = memo(() => {
 
   return (
     <>
-    <Heading align='center' mb={6}>どの審査員になる？</Heading>
+    <Heading pt={5} align='center' mb={6}>どの審査員になる？</Heading>
       <Container align='center'>
         <Button w='80%' mb={6} p={6} fontSize='lg' bg='#424242' color='#DAAA00' onClick={onClickM1}>
           M-1グランプリ

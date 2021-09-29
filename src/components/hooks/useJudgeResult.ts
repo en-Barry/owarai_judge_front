@@ -8,7 +8,7 @@ export const useJudgeResult = (props: string) => {
   const [judgeResults, setJudgeResults] = useState<Array<JudgementType2>>([]);
 
   const getJudgeResults = useCallback(() => {
-    axios.get<Array<JudgementType2>>(`http://localhost:3001/api/v1/judgements/${props}`, {withCredentials: true}).then((res) => {
+    axios.get<Array<JudgementType2>>(`https://owarai-judge-api-back.herokuapp.com/api/v1/judgements/${props}`, {withCredentials: true}).then((res) => {
       setJudgeResults(res.data);
     });
   }, []);

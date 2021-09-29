@@ -8,7 +8,7 @@ export const useFinalist = (props: string) => {
   const [finalists, setFinalists] = useState<Array<FinalistType>>([]);
 
   const getFinalists = useCallback(() => {
-    axios.get<Array<FinalistType>>(`http://localhost:3001/api/v1/finalists/${props}`, {withCredentials: true}).then((res) => {
+    axios.get<Array<FinalistType>>(`https://owarai-judge-api-back.herokuapp.com/api/v1/finalists/${props}`, {withCredentials: true}).then((res) => {
       if (res.data) {
         setFinalists(res.data);
       } else {

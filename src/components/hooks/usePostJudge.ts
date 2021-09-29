@@ -13,7 +13,7 @@ export const usePostJudge = (contest: ContestType) => {
   const postJudgement = useCallback((judgements: Array<JudgementType>, contest: ContestType) => {
     setLoading(true);
     
-    axios.post(`http://localhost:3001/api/v1/judgements`, {judgements}, {
+    axios.post(`https://owarai-judge-api-back.herokuapp.com/api/v1/judgements`, {judgements}, {
       withCredentials: true
       }).then((res) => {
         if (res.data.status === 'not_found') {

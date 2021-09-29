@@ -286,7 +286,7 @@ export const JudgeTable: VFC<Props> = memo((props) => {
     </Table>
     </Box>
     )}
-    <Button w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={handleSubmit} isLoading={loading}>審査完了！</Button>
+    <Button bg='yellow.300' w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={handleSubmit} isLoading={loading}>審査完了！</Button>
   </>
   )
 })

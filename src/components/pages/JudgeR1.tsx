@@ -22,7 +22,7 @@ export const JudgeR1: VFC = memo(() => {
 
   return (
   <>
-    <Heading align='center' mb={6}>審査結果を入力！</Heading>
+    <Heading align='center' mb={6} pt={5}>審査結果を入力！</Heading>
     <Container align='center'>
       <JudgeTable finalists={finalists} contest={contest} />
       <JudgeButtons pathname={'/result/r-1gp'} contest={contest} />

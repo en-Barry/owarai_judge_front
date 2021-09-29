@@ -12,8 +12,8 @@ type Props = {
 
 const SBox : FC<BoxProps> = (props) => <Box p='2' m='2' borderRadius='xl' borderWidth='2px' {...props} />
 const STr : FC<TableRowProps> = (props) => <Tr backgroundColor='gray.700' {...props} />
-const STh : FC<TableColumnHeaderProps> = (props) => <Th color='white' {...props} />
-const STd : FC<TableCellProps> = (props) => <Td color='yellow.400' fontWeight='bold' {...props} />
+const STh : FC<TableColumnHeaderProps> = (props) => <Th color='white' textAlign='center' {...props} />
+const STd : FC<TableCellProps> = (props) => <Td color='yellow.400' fontWeight='bold' textAlign='center' {...props} />
 const FTh : FC<TableColumnHeaderProps> = (props) => <Th bg='white' color='gray.700' colSpan={7} textAlign='center' fontSize={16} {...props} />
 
 export const ResultTable: VFC<Props> = memo((props) => {
@@ -46,7 +46,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
               <STd>{judgeResults2[1].score}</STd>
               <STd>{judgeResults2[0].score}</STd>
               <STd>{other.other_results[0].score}</STd>
-              <STd>{judgeResults2[50].score}</STd>
+              <STd>{judgeResults2[50] && judgeResults2[50].score}</STd>
             </STr>
           </Tbody>
         </Table>
@@ -75,7 +75,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[6].score}</STd>
             <STd>{judgeResults2[5].score}</STd>
             <STd>{other.other_results[1].score}</STd>
-            <STd>{judgeResults2[51].score}</STd>
+            <STd>{judgeResults2[51] && judgeResults2[51].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -104,7 +104,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[11].score}</STd>
             <STd>{judgeResults2[10].score}</STd>
             <STd>{other.other_results[2].score}</STd>
-            <STd>{judgeResults2[52].score}</STd>
+            <STd>{judgeResults2[52] && judgeResults2[52].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -133,7 +133,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[16].score}</STd>
             <STd>{judgeResults2[15].score}</STd>
             <STd>{other.other_results[3].score}</STd>
-            <STd>{judgeResults2[53].score}</STd>
+            <STd>{judgeResults2[53] && judgeResults2[53].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -162,7 +162,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[21].score}</STd>
             <STd>{judgeResults2[20].score}</STd>
             <STd>{other.other_results[4].score}</STd>
-            <STd>{judgeResults2[54].score}</STd>
+            <STd>{judgeResults2[54] && judgeResults2[54].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -191,7 +191,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[26].score}</STd>
             <STd>{judgeResults2[25].score}</STd>
             <STd>{other.other_results[5].score}</STd>
-            <STd>{judgeResults2[55].score}</STd>
+            <STd>{judgeResults2[55] && judgeResults2[55].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -220,7 +220,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[31].score}</STd>
             <STd>{judgeResults2[30].score}</STd>
             <STd>{other.other_results[6].score}</STd>
-            <STd>{judgeResults2[56].score}</STd>
+            <STd>{judgeResults2[56] && judgeResults2[56].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -249,7 +249,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[36].score}</STd>
             <STd>{judgeResults2[35].score}</STd>
             <STd>{other.other_results[7].score}</STd>
-            <STd>{judgeResults2[57].score}</STd>
+            <STd>{judgeResults2[57] && judgeResults2[57].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -278,7 +278,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[41].score}</STd>
             <STd>{judgeResults2[40].score}</STd>
             <STd>{other.other_results[8].score}</STd>
-            <STd>{judgeResults2[58].score}</STd>
+            <STd>{judgeResults2[58] && judgeResults2[58].score}</STd>
           </STr>
         </Tbody>
       </Table>
@@ -307,7 +307,7 @@ export const ResultTable: VFC<Props> = memo((props) => {
             <STd>{judgeResults2[46].score}</STd>
             <STd>{judgeResults2[45].score}</STd>
             <STd>{other.other_results[9].score}</STd>
-            <STd>{judgeResults2[59].score}</STd>
+            <STd>{judgeResults2[59] && judgeResults2[59].score}</STd>
           </STr>
         </Tbody>
       </Table>

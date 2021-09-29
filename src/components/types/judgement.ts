@@ -14,5 +14,5 @@ export type JudgementType2 = {
   score: number;
   finalists_name: Array<FinalistType>;
   judges_name: Array<JudgeType>;
-  
+  count: number;
 };

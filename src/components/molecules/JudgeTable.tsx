@@ -1,5 +1,5 @@
 import { memo, VFC, ChangeEvent, FormEvent } from "react";
-import { Button, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Table, TableCaption, Tbody, Td, Th, Thead, Tr, useControllableState } from "@chakra-ui/react";
+import { Box, Button, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Table, TableCaption, Tbody, Td, Th, Thead, Tr, useControllableState } from "@chakra-ui/react";
 
 import { ContestType } from "../types/contest";
 import { FinalistType } from "../types/finalist";
@@ -13,7 +13,7 @@ type Props = {
 
 export const JudgeTable: VFC<Props> = memo((props) => {
   const { finalists, contest } = props;
-  const { postJudgement, loading } = usePostJudge();
+  const { postJudgement, loading } = usePostJudge(contest);
 
   const [score1, setScore1] = useControllableState({ defaultValue: 85 });
   const [score2, setScore2] = useControllableState({ defaultValue: 85 });
@@ -112,7 +112,7 @@ export const JudgeTable: VFC<Props> = memo((props) => {
     };
     const judgements: Array<JudgementType> = [obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10]
     if (window.confirm('現在、1コンテストにつき審査は一度までです。審査結果を確定しますか？')) {
-      postJudgement(judgements);
+      postJudgement(judgements, contest);
     } else {
       
     }
@@ -120,7 +120,8 @@ export const JudgeTable: VFC<Props> = memo((props) => {
 
   return (
     <>
-    {finalists.length !== 0 && (
+    {finalists.length > 9 && (
+    <Box p='2' m='2' borderRadius='xl' borderWidth='2px'>
     <Table variant='simple' size='sm'>
     <TableCaption>{`${contest.name}${contest.year}`}</TableCaption>
     <Thead>
@@ -283,8 +284,9 @@ export const JudgeTable: VFC<Props> = memo((props) => {
         </Tr>
       </Tbody>
     </Table>
+    </Box>
     )}
-    <Button w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={handleSubmit} loading={loading}>審査完了</Button>
+    <Button bg='yellow.300' w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={handleSubmit} isLoading={loading}>審査完了！</Button>
   </>
   )
 })

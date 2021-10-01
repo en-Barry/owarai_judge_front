@@ -18,6 +18,8 @@ export default function App() {
         { property: 'og:url', content: 'https://www.owarai-judge.com' },
         { property: 'og:image', content: `${process.env.PUBLIC_URL}/owarai-judge-bigogp.jpg` },
         { property: 'og:description', content: 'お笑い賞レースの審査員アプリ' },
+        { name: 'twitter:title', content: 'オワライジャッジ.com' },
+        { name: 'twitter:descriptio', content: 'お笑い賞レースの審査員アプリ' },
         { name: 'twitter:card', content: 'summary' },
         { name: 'twitter:image', content: `${process.env.PUBLIC_URL}/owarai-judge-ogp.jpg` }
       ]}

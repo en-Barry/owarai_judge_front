@@ -1,5 +1,5 @@
-import { memo, VFC, ChangeEvent, FormEvent } from "react";
-import { Box, Button, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Table, TableCaption, Tbody, Td, Th, Thead, Tr, useControllableState } from "@chakra-ui/react";
+import { memo, VFC, ChangeEvent, FormEvent, useState, useRef } from "react";
+import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Box, Button, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Table, TableCaption, Tbody, Td, Th, Thead, Tr, useControllableState } from "@chakra-ui/react";
 
 import { ContestType } from "../types/contest";
 import { FinalistType } from "../types/finalist";
@@ -14,6 +14,10 @@ type Props = {
 export const JudgeTable: VFC<Props> = memo((props) => {
   const { finalists, contest } = props;
   const { postJudgement, loading } = usePostJudge(contest);
+
+  const [isOpen, setIsOpen] = useState(false)
+  const onClose = () => setIsOpen(false)
+  const cancelRef = useRef(null)
 
   const [score1, setScore1] = useControllableState({ defaultValue: 85 });
   const [score2, setScore2] = useControllableState({ defaultValue: 85 });
@@ -110,17 +114,12 @@ export const JudgeTable: VFC<Props> = memo((props) => {
       finalist_id: finalists[9].id,
       contest_id: contest.id
     };
-    const judgements: Array<JudgementType> = [obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10]
-    if (window.confirm('現在、1コンテストにつき審査は一度までです。審査結果を確定しますか？')) {
-      postJudgement(judgements, contest);
-    } else {
-      
-    }
+    const judgements: Array<JudgementType> = [obj1, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10];
+    postJudgement(judgements, contest)
   };
 
   return (
     <>
-    {finalists.length > 9 && (
     <Box p='2' m='2' borderRadius='xl' borderWidth='2px'>
     <Table variant='simple' size='sm'>
     <TableCaption>{`${contest.name}${contest.year}`}</TableCaption>
@@ -285,8 +284,30 @@ export const JudgeTable: VFC<Props> = memo((props) => {
       </Tbody>
     </Table>
     </Box>
-    )}
-    <Button bg='yellow.300' w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={handleSubmit} isLoading={loading}>審査完了！</Button>
+    <Button bg='yellow.300' w='80%' mt={4} mb={6} p={6} fontSize='lg' onClick={() => setIsOpen(true)}>審査完了！</Button>
+  
+    <AlertDialog
+      motionPreset='slideInBottom'
+      isOpen={isOpen}
+      leastDestructiveRef={cancelRef}
+      onClose={onClose}
+      isCentered
+    >
+      <AlertDialogOverlay>
+        <AlertDialogContent>
+          <AlertDialogHeader fontSize='lg' fontWeight='bold'>
+            最終確認！
+          </AlertDialogHeader>
+          <AlertDialogBody>
+            現在、1コンテストにつき審査は一度までです。<br></br>審査結果を確定しますか？
+          </AlertDialogBody>
+          <AlertDialogFooter>
+            <Button ref={cancelRef} onClick={onClose} ml={3}>キャンセル</Button>
+            <Button bg='yellow.300' onClick={handleSubmit} ml={3} isLoading={loading}>確定する</Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialogOverlay>
+    </AlertDialog>
   </>
   )
 })

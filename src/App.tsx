@@ -14,8 +14,9 @@ export default function App() {
         { name: 'description', content: 'お笑い賞レースの審査員アプリ' },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { property: 'og:title', content: 'オワライジャッジ.com'},
+        { property: 'og:type', content: 'website'},
         { property: 'og:url', content: 'https://www.owarai-judge.com' },
-        { property: 'og:image', content: `${process.env.PUBLIC_URL}/owarai-judge-ogp.jpg` },
+        { property: 'og:image', content: `${process.env.PUBLIC_URL}/owarai-judge-bigogp.jpg` },
         { property: 'og:description', content: 'お笑い賞レースの審査員アプリ' },
         { name: 'twitter:card', content: 'summary' },
         { name: 'twitter:image', content: `${process.env.PUBLIC_URL}/owarai-judge-ogp.jpg` }

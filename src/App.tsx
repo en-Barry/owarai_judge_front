@@ -19,7 +19,7 @@ export default function App() {
         { name: 'twitter:card', content: 'summary' }
       ]}
       link={[
-        { 'rel': 'icon', 'type': 'image/jpg', 'href': ''}
+        { 'rel': 'icon', 'type': 'image/jpg', 'href': `${process.env.PUBLIC_URL}/owarai-judge-ogp.jpg`}
       ]}
       >
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HF2N44QBLF"></script>

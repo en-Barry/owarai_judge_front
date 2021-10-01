@@ -12,14 +12,16 @@ export default function App() {
       title={'オワライジャッジ.com'}
       meta={[
         { name: 'description', content: 'お笑い賞レースの審査員アプリ' },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
         { property: 'og:title', content: 'オワライジャッジ.com'},
         { property: 'og:url', content: 'https://www.owarai-judge.com' },
         { property: 'og:image', content: `${process.env.PUBLIC_URL}/owarai-judge-ogp.jpg` },
         { property: 'og:description', content: 'お笑い賞レースの審査員アプリ' },
-        { name: 'twitter:card', content: 'summary' }
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:image', content: `${process.env.PUBLIC_URL}/owarai-judge-ogp.jpg` }
       ]}
       link={[
-        { 'rel': 'icon', 'type': 'image/jpg', 'href': `${process.env.PUBLIC_URL}/owarai-judge-ogp.jpg`}
+        { 'rel': 'icon', 'type': 'image/jpg', 'href': `${process.env.PUBLIC_URL}/favicon.ico`}
       ]}
       >
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-HF2N44QBLF"></script>

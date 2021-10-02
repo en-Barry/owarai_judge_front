@@ -34,7 +34,7 @@ export const JudgeM1: VFC = memo(() => {
         </>
       ) : (
         <>
-        <Heading as='h2' size='sm' pt={10}>時間をおいても更新されない場合は<br></br>アップデートをお待ちください</Heading>
+        <Heading as='h2' size='sm' p={10}>時間をおいても更新されない場合は<br></br>アップデートをお待ちください</Heading>
         <Button w='80%' mb={6} p={6} fontSize='lg' onClick={onClickBack}>前の画面に戻る</Button>
         </>
       )}

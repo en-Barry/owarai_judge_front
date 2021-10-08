@@ -16,7 +16,7 @@ export const JudgeKing: VFC = memo(() => {
   const location = useLocation();
   const state = location.state as CustomizedState;
   const { contest } = state;
-  const { getFinalists, finalists } = useFinalist(`king-of-conte/${contest.year}`);
+  const { getFinalists, finalists } = useFinalist(`${contest.id}`);
 
   const history = useHistory();
   const onClickBack = useCallback(() => history.goBack(), []);

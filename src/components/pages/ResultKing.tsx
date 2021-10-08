@@ -19,7 +19,7 @@ export const ResultKing: VFC = memo(() => {
   const location = useLocation();
   const state = location.state as CustomizedState;
   const { contest } = state;
-  const { getJudgeResults, judgeResults } = useJudgeResult(`king-of-conte/${contest.id}`);
+  const { getJudgeResults, judgeResults } = useJudgeResult(`${contest.id}`);
 
   useEffect(() => getJudgeResults(), []);
 

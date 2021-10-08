@@ -7,7 +7,7 @@ import { SelectYearButtons } from "../molecules/SelectYearButtons";
 import { useHistory } from "react-router-dom";
 
 export const SelectionR1: VFC = memo(() => {
-  const { getContests, contests } = useContest('r-1gp');
+  const { getContests, contests } = useContest('2');
 
   const history = useHistory();
   const onClickBack = useCallback(() => history.goBack(), []);

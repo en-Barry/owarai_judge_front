@@ -7,7 +7,7 @@ import { useContest } from "../hooks/useContest";
 import { SelectYearButtons } from "../molecules/SelectYearButtons";
 
 export const SelectionM1: VFC = memo(() => {
-  const { getContests, contests } = useContest('m-1gp');
+  const { getContests, contests } = useContest('0');
 
   const history = useHistory();
   const onClickBack = useCallback(() => history.goBack(), []);

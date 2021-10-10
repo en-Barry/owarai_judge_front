@@ -3,12 +3,15 @@ import { useState, useCallback } from "react";
 import axios from "axios";
 
 import { FinalistType } from "../types/finalist";
+import { getFinalist } from "../../config/config";
 
 export const useFinalist = (props: string) => {
   const [finalists, setFinalists] = useState<Array<FinalistType>>([]);
 
+  const apiURL = getFinalist(props);
+
   const getFinalists = useCallback(() => {
-    axios.get<Array<FinalistType>>(`https://owarai-judge-api-back.herokuapp.com/api/v1/finalists/${props}`, {withCredentials: true}).then((res) => {
+    axios.get<Array<FinalistType>>(apiURL, {withCredentials: true}).then((res) => {
       if (res.data) {
         setFinalists(res.data);
       } else {

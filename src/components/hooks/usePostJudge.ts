@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { postJudgements } from "../../config/config";
 import { ContestType } from "../types/contest";
 
 import { JudgementType } from "../types/judgement";
@@ -12,8 +13,10 @@ export const usePostJudge = (contest: ContestType) => {
 
   const postJudgement = useCallback((judgements: Array<JudgementType>, contest: ContestType) => {
     setLoading(true);
+
+    const apiURL = postJudgements();
     
-    axios.post(`https://owarai-judge-api-back.herokuapp.com/api/v1/judgements`, {judgements}, {
+    axios.post(apiURL, {judgements}, {
       withCredentials: true
       }).then((res) => {
         if (res.data.status === 'not_found') {
